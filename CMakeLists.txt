@@ -1,30 +1,26 @@
 cmake_minimum_required(VERSION 3.13.2)
 
-set(PROJ_NAME cmakeproj_cpp)
-project(${PROJ_NAME} CXX)
+set(PROJ_NAME clox)
+project(${PROJ_NAME} C)
 set(EXE_NAME ${PROJ_NAME})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-set(S ${CMAKE_BINARY_DIR}/..)
+include_directories(${CMAKE_SOURCE_DIR}/src)
 
-include_directories(${S}/src)
-
-file(GLOB SRCS ${S}/src/*.cpp ${S}/src/*.c ${S}/src/*.cxx)
-file(GLOB HS ${S}/src/*.hpp ${S}/src/*.h)
-
-add_executable(${PROJ_NAME} ${SRCS} ${HS})
-
-add_custom_command(TARGET ${PROJ_NAME} POST_BUILD
-	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${PROJ_NAME}> ${S}/bin
+add_executable(${PROJ_NAME}
+	${CMAKE_SOURCE_DIR}/src/main.c
+	${CMAKE_SOURCE_DIR}/src/chunk.c
+	${CMAKE_SOURCE_DIR}/src/memory.c
 )
 
 #target_link_libraries(${PROJ_NAME} )
 
-#set_target_properties(${PROJ_NAME} PROPERTIES
-#	
-#)
+set_target_properties(${PROJ_NAME} PROPERTIES
+	LINKER_LANGUAGE C
+)
 
 target_compile_options(${EXE_NAME} PUBLIC 
-	-g -std=c++20 -Wall 
+	-g -Wall 
 	$<$<CONFIG:Debug>:-g> 
 	$<$<CONFIG:Release>: -O2>
 )
