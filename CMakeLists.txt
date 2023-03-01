@@ -11,6 +11,7 @@ add_executable(${PROJ_NAME}
 	${CMAKE_SOURCE_DIR}/src/main.c
 	${CMAKE_SOURCE_DIR}/src/chunk.c
 	${CMAKE_SOURCE_DIR}/src/memory.c
+	${CMAKE_SOURCE_DIR}/src/debug.c
 )
 
 #target_link_libraries(${PROJ_NAME} )
