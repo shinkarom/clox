@@ -8,10 +8,11 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
 add_executable(${PROJ_NAME}
-	${CMAKE_SOURCE_DIR}/src/main.c
-	${CMAKE_SOURCE_DIR}/src/chunk.c
-	${CMAKE_SOURCE_DIR}/src/memory.c
-	${CMAKE_SOURCE_DIR}/src/debug.c
+	src/main.c
+	src/chunk.c
+	src/memory.c
+	src/debug.c
+	src/value.c
 )
 
 #target_link_libraries(${PROJ_NAME} )
