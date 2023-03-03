@@ -13,6 +13,7 @@ add_executable(${PROJ_NAME}
 	src/memory.c
 	src/debug.c
 	src/value.c
+	src/vm.c
 )
 
 #target_link_libraries(${PROJ_NAME} )
