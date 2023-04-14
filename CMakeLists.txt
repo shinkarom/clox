@@ -17,6 +17,7 @@ add_executable(${PROJ_NAME}
 	src/compiler.c
 	src/scanner.c
 	src/object.c
+	src/table.c
 )
 
 #target_link_libraries(${PROJ_NAME} )
