@@ -205,7 +205,6 @@ static void addLocal(Token name) {
 		error("Too many local variables in function.");
 		return;
 	}
-	
 	Local* local = &current->locals[current->localCount++];
 	local->name = name;
 	local->depth = -1;
@@ -332,6 +331,7 @@ static void statement() {
 	} else if (match(TOKEN_LEFT_BRACE)) {
 		beginScope();
 		block();
+		endScope();
 	} else {
 		expressionStatement();
 	}
