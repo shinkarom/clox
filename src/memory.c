@@ -215,8 +215,8 @@ static void sweep() {
 void collectGarbage() {
 #ifdef DEBUG_LOG_GC
 	printf("-- gc begin\n");
-#endif
 	size_t before = vm.bytesAllocated;
+#endif
 
 	markRoots();
 	traceReferences();
